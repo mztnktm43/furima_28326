@@ -28,16 +28,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column              | Type     | Options    |
-| ------------------- | -------- | ---------- |
-| nickname            | string   | null:false |
-| email               | string   | null:false |
-| password            | string   | null:false |
-| family_name         | string   | null:false |
-| family_name_reading | string   | null:false |
-| first_name          | string   | null:false |
-| first_name_reading  | string   | null:false |
-| birthday            | datetime | null:false |
+| Column              | Type   | Options    |
+| ------------------- | ------ | ---------- |
+| nickname            | string | null:false |
+| email               | string | null:false |
+| password            | string | null:false |
+| family_name         | string | null:false |
+| family_name_reading | string | null:false |
+| first_name          | string | null:false |
+| first_name_reading  | string | null:false |
+| birthday            | date   | null:false |
 
 ## Association
 
@@ -59,10 +59,11 @@ Things you may want to cover:
 - has_one :order
 - belongs_to_active_hash :item_detail
 
-## image
+## imagesテーブル
 | Column | Type       | Options                      |
 | ------ | ---------- | ---------------------------- |
 | image  | references | null:false, foreign_key:true |
+
 
 
 ## ordersテーブル
@@ -84,6 +85,7 @@ Things you may want to cover:
 | --------------- | ---------- | ----------------------------- |
 | order           | references | null:false, foreign_key: true |
 | postal_code     | string     | null:false                    |
+| prefecture      | string     | null:false                    |
 | city            | string     | null:false                    |
 | house_number    | string     | null:false                    |
 | building_number | string     |                               |
@@ -93,3 +95,5 @@ Things you may want to cover:
 
 - belongs_to :order
 - belongs_to_active_hash :prefecture
+<!--prefectureカラムはbelongs_to_active_hashで繋げているが、prefectureカラムが必要？
+その場合、referencesは必要ないのでtypeと外部キーの記載はどうなる？-->
