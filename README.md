@@ -51,11 +51,11 @@ Things you may want to cover:
 | name                 | string   | null:false |
 | comment              | text     | null:false |
 | cost                 | integer  | null:false |
-| category_id          | string   | null:false |
-| product_status_id    | string   | null:false |
+| category_id          | integer  | null:false |
+| product_status_id    | integer  | null:false |
 | fee_id               | integer  | null:false |
-| origin_prefecture_id | string   | null:false |
-| delivery_days_id     | string   | null:false |
+| origin_prefecture_id | integer  | null:false |
+| delivery_days_id     | integer  | null:false |
 
 
 ## Association
@@ -95,7 +95,7 @@ Things you may want to cover:
 | --------------- | ---------- | ----------------------------- |
 | order           | references | null:false, foreign_key: true |
 | postal_code     | string     | null:false                    |
-| prefecture_id   | string     | null:false                    |
+| prefecture_id   | integer    | null:false                    |
 | city            | string     | null:false                    |
 | house_number    | string     | null:false                    |
 | building_number | string     |                               |
