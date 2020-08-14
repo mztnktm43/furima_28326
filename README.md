@@ -46,18 +46,28 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Column            | Type     | Options    |
-| ----------------- | -------- | ---------- |
-| name              | string   | null:false |
-| comment           | text     | null:false |
-| cost              | integer  | null:false |
+| Column               | Type     | Options    |
+| -------------------- | -------- | ---------- |
+| name                 | string   | null:false |
+| comment              | text     | null:false |
+| cost                 | integer  | null:false |
+| category_id          | string   | null:false |
+| product_status_id    | string   | null:false |
+| fee_id               | integer  | null:false |
+| origin_prefecture_id | string   | null:false |
+| delivery_days_id     | string   | null:false |
+
 
 ## Association
 
 - belongs_to :user
 - has_one_attached :image
 - has_one :order
-- belongs_to_active_hash :item_detail
+- belongs_to_active_hash :category
+- belongs_to_active_hash :product_status
+- belongs_to_active_hash :fee
+- belongs_to_active_hash :origin_prefecture
+- belongs_to_active_hash :delivery_days
 
 ## imagesテーブル
 | Column | Type       | Options                      |
@@ -85,7 +95,7 @@ Things you may want to cover:
 | --------------- | ---------- | ----------------------------- |
 | order           | references | null:false, foreign_key: true |
 | postal_code     | string     | null:false                    |
-| prefecture      | string     | null:false                    |
+| prefecture_id   | string     | null:false                    |
 | city            | string     | null:false                    |
 | house_number    | string     | null:false                    |
 | building_number | string     |                               |
@@ -95,5 +105,3 @@ Things you may want to cover:
 
 - belongs_to :order
 - belongs_to_active_hash :prefecture
-<!--prefectureカラムはbelongs_to_active_hashで繋げているが、prefectureカラムが必要？
-その場合、referencesは必要ないのでtypeと外部キーの記載はどうなる？-->
