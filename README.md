@@ -46,16 +46,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Column               | Type     | Options    |
-| -------------------- | -------- | ---------- |
-| name                 | string   | null:false |
-| comment              | text     | null:false |
-| cost                 | integer  | null:false |
-| category_id          | integer  | null:false |
-| product_status_id    | integer  | null:false |
-| fee_id               | integer  | null:false |
-| origin_prefecture_id | integer  | null:false |
-| delivery_days_id     | integer  | null:false |
+| Column               | Type       | Options                      |
+| -------------------- | ---------- | ---------------------------- |
+| user_id              | references | null:false, foreign_key:true |
+| name                 | string     | null:false                   |
+| comment              | text       | null:false                   |
+| cost                 | integer    | null:false                   |
+| category_id          | integer    | null:false                   |
+| product_status_id    | integer    | null:false                   |
+| fee_id               | integer    | null:false                   |
+| origin_prefecture_id | integer    | null:false                   |
+| delivery_days_id     | integer    | null:false                   |
 
 
 ## Association
