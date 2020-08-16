@@ -7,14 +7,10 @@ class User < ApplicationRecord
     has_many :items
     has_many :orders
 
-  with_options presences: true do
-    validates :nickname 
-    validates :email, format: {with: /@+/ }#一意性(カラム内での重複禁止)、＠を含む
-    validates :encrypted_password, format: { with: /\d{6}/, PASSWORD_REGEX }#６文字以上、半角英数混合
-    validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }#全角ひらがなカタカナ漢字
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }# 〃
-    validates :family_name_reading, format: { with: /\A[ァ-ヶー－]+\z/ }#全角カタカナ
-    validates :first_name_reading, format: { with: /\A[ァ-ヶー－]+\z/ }# 〃
-    validates :birthday
-  end
+
+    validates :nickname, :birthday, presence: true 
+    validates :password, presence: true, format: { with: /\d{6}/, with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }#６文字以上、半角英数混合
+    validates :family_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }#全角ひらがなカタカナ漢字
+    validates :family_name_reading, :first_name_reading, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }#全角カタカナ
+  
 end
