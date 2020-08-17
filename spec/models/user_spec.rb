@@ -11,18 +11,15 @@ describe User do
         expect(@user).to be_valid
       end
       it "passwordが６文字以上であれば登録できる" do
-        @user.password = "000000"
-        @user.password_cpnfirmation = "000000"
+        @user.password
+        @user.password_confirmation
         expect(@user).to be_valid
-      end
-      it "family_name,firstnameが全角のひらがなカタカナ漢字であれば登録できる" do
-      end
-      it "family_name_reading,first_name_readingが全角カタカナであれば登録できる" do
       end
     end
 
     context '新規登録がうまくいかないとき' do
       it "nicknameが空だと登録できない" do
+       
       end
       it "passwaordが空だと登録できない" do
       end
@@ -73,3 +70,4 @@ describe User do
 end
 
 # bundle exec rspec spec/models/user_spec.rb
+# expect(@user.errors.full_message).to include("***** can't be blank")
