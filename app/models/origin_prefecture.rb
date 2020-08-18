@@ -1,0 +1,2 @@
+class OriginPrefecture < ApplicationRecord
+end
