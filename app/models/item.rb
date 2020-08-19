@@ -9,9 +9,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :origin_prefecture
   belongs_to_active_hash :delivery_day
 
-  with_options presence: true do 
-  end 
+  validates :image, :name, :comment, :category_id, :product_status_id, :fee_id, :origin_prefecture_id, :delivery_day_id, presence: true
 
-  validates :genre_id, numericality: { other_than: 1 }
   #ActiveHashが「--」のときに保存できない
+  with_options numericality: { other_than: 1 } do
+    validates :category_id, :product_status_id, :fee_id, :origin_prefecture_id, :delivery_day_id
+  end
+
 end
