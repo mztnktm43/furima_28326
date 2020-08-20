@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name              { Faker::Lorem.characters(number: 41) }
-    comment           { Faker::Lorem.characters(number: 1001) }
+    name              { '商品名' }
+    comment           { '商品説明' }
     category_id       { '5' }
     product_status_id { '5' }
     fee_id            { '5' }

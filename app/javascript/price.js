@@ -1,11 +1,11 @@
 window.addEventListener('load', function(){
-  const priceForm = document.getElementById("item-price")        // priceFormという変数にid=item-priceを入れる
-  const tax = document.getElementById("add-tax-price")           // taxという変数にid=add-tax-priceを入れる
-  const profit = document.getElementById("profit")               // profitという変数にid=profitを入れる
+  const priceForm = document.getElementById("item-price")
+  const tax = document.getElementById("add-tax-price")
+  const profit = document.getElementById("profit")
 
-  priceForm.addEventListener("change", (event) => {              // changeイベント発火
-    const price = document.getElementById("item-price").value;   // valueで入力された値を取得
-    tax.innerHTML = price/100*10                                 // taxに表示させる
-    profit.innerHTML = price-price/100*10                        //profitに表示させる
+  priceForm.addEventListener("change", (event) => {
+    const price = document.getElementById("item-price").value;
+    tax.innerHTML = price/100*10
+    profit.innerHTML = price-price/100*10
  })
 })
