@@ -46,17 +46,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-| Column               | Type       | Options                      |
-| -------------------- | ---------- | ---------------------------- |
-| user                 | references | null:false, foreign_key:true |
-| name                 | string     | null:false                   |
-| comment              | text       | null:false                   |
-| cost                 | integer    | null:false                   |
-| category_id          | integer    | null:false                   |
-| product_status_id    | integer    | null:false                   |
-| fee_id               | integer    | null:false                   |
-| origin_prefecture_id | integer    | null:false                   |
-| delivery_days_id     | integer    | null:false                   |
+| Column            | Type       | Options                      |
+| ----------------- | ---------- | ---------------------------- |
+| user              | references | null:false, foreign_key:true |
+| name              | string     | null:false                   |
+| comment           | text       | null:false                   |
+| cost              | integer    | null:false                   |
+| category_id       | integer    | null:false                   |
+| product_status_id | integer    | null:false                   |
+| fee_id            | integer    | null:false                   |
+| prefecture_id     | integer    | null:false                   |
+| delivery_days_id  | integer    | null:false                   |
 
 
 ## Association
@@ -67,7 +67,7 @@ Things you may want to cover:
 - belongs_to_active_hash :category
 - belongs_to_active_hash :product_status
 - belongs_to_active_hash :fee
-- belongs_to_active_hash :origin_prefecture
+- belongs_to_active_hash :prefecture
 - belongs_to_active_hash :delivery_days
 
 ## imagesテーブル
