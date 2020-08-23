@@ -22,6 +22,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if 
+      item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def move_to_new
