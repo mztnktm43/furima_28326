@@ -28,7 +28,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'nameが40文字以上だと出品できない' do
-        @item.name = Faker::Lorem.characters(number:41)
+        @item.name = Faker::Lorem.characters(number: 41)
         @item.valid?
         expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
@@ -38,7 +38,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Comment can't be blank")
       end
       it 'commentが1000字以上だと出品できない' do
-        @item.comment = Faker::Lorem.characters(number:1001)
+        @item.comment = Faker::Lorem.characters(number: 1001)
         @item.valid?
         expect(@item.errors.full_messages).to include('Comment is too long (maximum is 1000 characters)')
       end
@@ -50,7 +50,7 @@ describe Item do
       it 'category_id{id:1,name:--}だと出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'product_status_idが空だと出品できない' do
         @item.product_status_id = ' '
@@ -60,7 +60,7 @@ describe Item do
       it 'product_status_id{id:1,name:--}だと出品できない' do
         @item.product_status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product status must be other than 1")
+        expect(@item.errors.full_messages).to include('Product status must be other than 1')
       end
       it 'fee_idが空だと出品できない' do
         @item.fee_id = ' '
@@ -70,7 +70,7 @@ describe Item do
       it 'fee_id{id:1,name:--}だと出品できない' do
         @item.fee_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Fee must be other than 1")
+        expect(@item.errors.full_messages).to include('Fee must be other than 1')
       end
       it 'prefecture_idが空だと出品できない' do
         @item.prefecture_id = ' '
@@ -80,7 +80,7 @@ describe Item do
       it 'prefecture_id{id:1,name:--}だと出品できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'delibery_day_idが空だと出品できない' do
         @item.delivery_day_id = ' '
@@ -90,7 +90,7 @@ describe Item do
       it 'delivery_day_id{id:1,name:--}だと出品できない' do
         @item.delivery_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
+        expect(@item.errors.full_messages).to include('Delivery day must be other than 1')
       end
       it 'costが空だと出品できない' do
         @item.cost = ' '
@@ -110,4 +110,3 @@ describe Item do
     end
   end
 end
-
