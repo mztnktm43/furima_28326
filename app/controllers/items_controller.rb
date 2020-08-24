@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, only: [:new, :create]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -19,16 +20,25 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
     item = Item.find(params[:id])
-    if 
-      item.destroy
+    if item.destroy
       redirect_to root_path
     else
       render :show
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
     end
   end
 
@@ -39,6 +49,10 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.permit(:image, :name, :comment, :cost, :category_id, :product_status_id, :fee_id, :prefecture_id, :delivery_day_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :comment, :cost, :category_id, :product_status_id, :fee_id, :prefecture_id, :delivery_day_id).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
