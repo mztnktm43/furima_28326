@@ -5,5 +5,6 @@ FactoryBot.define do
     city          { 'city' }
     house_number  { 'house123' }
     phone_number  { '12345678910' }
+    token {"user_token"}
   end
 end
