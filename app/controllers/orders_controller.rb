@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = OrderAddress.new(order_params)
+    binding.pry
     if @order.valid?
       pay_item
       @order.save
