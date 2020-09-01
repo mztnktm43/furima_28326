@@ -7,8 +7,9 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../price")
-require("../card")
+require("../price")  //出品時の価格表示について
+require("../card")   //CR支払いについて
+require("./preview") //出品画像のプレビュー表示について
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
