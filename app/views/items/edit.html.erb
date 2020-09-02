@@ -9,6 +9,7 @@ app/assets/stylesheets/items/new.css %>
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
 
+    <%# 入力エラーの表示 %>
     <%= render 'shared/error_messages', model: @item %>
 
     <%# 出品画像 %>

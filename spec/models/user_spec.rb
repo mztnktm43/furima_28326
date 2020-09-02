@@ -21,119 +21,119 @@ describe User do
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
       end
       it 'passwaordが空だと登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")
+        expect(@user.errors.full_messages).to include("パスワードを入力してください")
       end
       it 'birthdayが空だと登録できない' do
         @user.birthday = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Birthday can't be blank")
+        expect(@user.errors.full_messages).to include("生年月日を入力してください")
       end
       it 'family_nameが空だと登録できない' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name can't be blank")
+        expect(@user.errors.full_messages).to include("名前を入力してください")
       end
       it 'first_nameが空だと登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank")
+        expect(@user.errors.full_messages).to include("名前を入力してください")
       end
       it 'family_name_readingが空だと登録できない' do
         @user.family_name_reading = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name reading can't be blank")
+        expect(@user.errors.full_messages).to include("フリガナを入力してください")
       end
       it 'first_name_readingが空だと登録できない' do
         @user.first_name_reading = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name reading can't be blank")
+        expect(@user.errors.full_messages).to include("フリガナを入力してください")
       end
       it 'passwordが６文字未満だと登録できない' do
         @user.password = '00000'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
       end
       it 'passwordが英語だけだと登録できない' do
         @user.password = 'aaaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is invalid')
+        expect(@user.errors.full_messages).to include('パスワードは不正な値です')
       end
       it 'passwordが数字だけだと登録できない' do
         @user.password = '11111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is invalid')
+        expect(@user.errors.full_messages).to include('パスワードは不正な値です')
       end
       it 'emailが重複していると登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include('Email has already been taken')
+        expect(another_user.errors.full_messages).to include('Eメールはすでに存在します')
       end
       it 'family_nameが英語だと登録できない' do
         @user.family_name = 'aaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name is invalid')
+        expect(@user.errors.full_messages).to include('名前は不正な値です')
       end
       it 'first_nameが英語だと登録できない' do
         @user.first_name = 'aaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name is invalid')
+        expect(@user.errors.full_messages).to include('名前は不正な値です')
       end
       it 'family_name_readingが英語だと登録できない' do
         @user.family_name_reading = 'aaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'first_name_readingが英語だと登録できない' do
         @user.first_name_reading = 'aaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'family_nameが数字だと登録できない' do
         @user.family_name = '1111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name is invalid')
+        expect(@user.errors.full_messages).to include('名前は不正な値です')
       end
       it 'first_nameが数字だと登録できない' do
         @user.first_name = '1111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name is invalid')
+        expect(@user.errors.full_messages).to include('名前は不正な値です')
       end
       it 'family_name_readingが数字だと登録できない' do
         @user.family_name_reading = '1111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'first_name_readingが数字だと登録できない' do
         @user.first_name_reading = '1111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'family_name_readingがひらがなだと登録できない' do
         @user.family_name_reading = 'かな'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'first_name_readingがひらがなだと登録できない' do
         @user.first_name_reading = 'かな'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'family_name_readingが漢字だと登録できない' do
         @user.family_name_reading = '仮名'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Family name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
       it 'first_name_readingが漢字だと登録できない' do
         @user.first_name_reading = '仮名'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name reading is invalid')
+        expect(@user.errors.full_messages).to include('フリガナは不正な値です')
       end
     end
   end
