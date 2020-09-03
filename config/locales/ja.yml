@@ -19,3 +19,13 @@ ja:
        prefecture_id: 配送元の地域
        delivery_day_id: 発送までの日数
        user_id: ユーザー
+
+ja:
+  activemodel:
+    attributes:
+      order_address:
+        city: 市区町村
+        house_number: 番地
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        phone_number: 電話番号
