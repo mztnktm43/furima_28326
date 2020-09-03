@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     if current_user.id == @item.user_id || Order.exists?(item_id: @item.id)
       redirect_to root_path
     end
+    @order = OrderAddress.new
   end
 
   def new
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      redirect_to item_orders_path
+      render 'index'
     end
   end
 
