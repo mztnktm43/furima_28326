@@ -29,8 +29,7 @@
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
-        window.alert("残念")
-        // location.reload();
+        window.alert("もう一度入力し直してください")
       }
     });
   });
