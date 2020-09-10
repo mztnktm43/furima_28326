@@ -1,4 +1,3 @@
-if (document.URL.match( /orders/ ) ){ //order(購入)のページのときのみ実行される
   const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
@@ -17,6 +16,7 @@ if (document.URL.match( /orders/ ) ){ //order(購入)のページのときのみ
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
         const token = response.id;
+        console.log(token)
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
@@ -29,11 +29,10 @@ if (document.URL.match( /orders/ ) ){ //order(購入)のページのときのみ
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
-        location.reload();
+        window.alert("もう一度入力し直してください")
       }
     });
   });
 };
 
 window.addEventListener("load", pay);
-};
