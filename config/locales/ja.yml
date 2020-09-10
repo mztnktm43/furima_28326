@@ -1,26 +1,26 @@
 ja:
- activerecord:
-   attributes:
-     user:
-       nickname: ニックネーム
-       birthday: 生年月日
-       family_name: 名前
-       first_name: 名前
-       family_name_reading: フリガナ
-       first_name_reading: フリガナ
-     item:
-       image: 画像
-       name: 商品名
-       comment: 商品の説明
-       cost: 価格
-       category_id: カテゴリー
-       product_status_id: 商品の状態
-       fee_id: 配送料の負担
-       prefecture_id: 配送元の地域
-       delivery_day_id: 発送までの日数
-       user_id: ユーザー
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        birthday: 生年月日
+        family_name: 名前
+        first_name: 名前
+        family_name_reading: フリガナ
+        first_name_reading: フリガナ
+      item:
+        image: 画像
+        name: 商品名
+        comment: 商品の説明
+        cost: 価格
+        category_id: カテゴリー
+        product_status_id: 商品の状態
+        fee_id: 配送料の負担
+        prefecture_id: 配送元の地域
+        delivery_day_id: 発送までの日数
+        user_id: ユーザー
 
-ja:
+
   activemodel:
     attributes:
       order_address:
